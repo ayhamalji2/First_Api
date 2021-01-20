@@ -16,11 +16,6 @@ app.secret_key = 'ayham'
 api = Api(app)
 
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
-
 jwt = JWT(app, authenticate, identity)
 
 api.add_resource(Item, '/item/<string:name>')
